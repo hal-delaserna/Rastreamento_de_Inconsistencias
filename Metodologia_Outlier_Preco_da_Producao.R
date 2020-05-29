@@ -20,7 +20,7 @@ maiusculas <- function(x) {
 #----------carregamento e pré-formatação  ----
 movimentacao_bruta <-
   read.csv(
-    'C:/Users/humberto.serna/Desktop/CSV_Data/Movimentacao_da_Producao_Bruta_SP_2018_7_5.csv',
+    'D:/Users/humberto.serna/Desktop/CSV_Data/Movimentacao_da_Producao_Bruta_SP_2018_7_5.csv',
     sep = ";",
     dec = ",",
     stringsAsFactors = FALSE,
@@ -111,8 +111,8 @@ plot(density(ano2016[ano2016$preco < 100, ]$preco))
 outliers_2015 <-
   inner_join(data.frame(preco = boxplot(ano2015$preco)$out), ano2015, by = 'preco')
 
-# Outliers-preço presentes no 3º quartil da produção bruta
-inconsistencia_2015 <-  semi_join(
+# Outliers-preço presentes na produção bruta
+inconsistencia_2015 <- semi_join(
   outliers_2015,
   select(ano2015, everything()) %>%
     filter(
